@@ -15,6 +15,7 @@ export default function Header() {
     e.preventDefault();
     const todo = e.target.todo.value;
     dispatch(addTodo(todo));
+    e.target.reset();
   };
 
   return (
