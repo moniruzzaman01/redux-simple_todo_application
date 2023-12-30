@@ -1,7 +1,11 @@
 import notes from "../assets/images/notes.png";
 import doubleTick from "../assets/images/double-tick.png";
 import plus from "../assets/images/plus.png";
-import { addTodo } from "../redux/todos/actions";
+import {
+  addTodo,
+  clearCompletedTodos,
+  completeAllTodos,
+} from "../redux/todos/actions";
 import { useDispatch } from "react-redux";
 
 export default function Header() {
@@ -33,11 +37,19 @@ export default function Header() {
       </form>
 
       <ul className="flex justify-between my-4 text-xs text-gray-500">
-        <li className="flex space-x-1 cursor-pointer">
+        <li
+          onClick={() => dispatch(completeAllTodos())}
+          className="flex space-x-1 cursor-pointer"
+        >
           <img className="w-4 h-4" src={doubleTick} alt="Complete" />
           <span>Complete All Tasks</span>
         </li>
-        <li className="cursor-pointer">Clear completed</li>
+        <li
+          onClick={() => dispatch(clearCompletedTodos())}
+          className="cursor-pointer"
+        >
+          Clear completed
+        </li>
       </ul>
     </div>
   );
