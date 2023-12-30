@@ -53,7 +53,7 @@ const todosReducer = (state = initialState, action) => {
             ...todo,
             selectedColors: [
               ...todo.selectedColors,
-              action.payload.selectedColors,
+              action.payload.selectedColor,
             ],
           };
         }

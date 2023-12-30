@@ -13,7 +13,7 @@ export const addTodo = (todoText) => {
     payload: { todoText },
   };
 };
-export const completeTodo = (todoId) => {
+export const toggleState = (todoId) => {
   return {
     type: TOGGLESTATE,
     payload: { todoId },
