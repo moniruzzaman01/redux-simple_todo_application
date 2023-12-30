@@ -3,7 +3,7 @@ import {
   TOGGLESTATE,
   COMPLETEALLTODOS,
   CLEARCOMPLETEDTODOS,
-  SELECTEDCOLORS,
+  SELECTEDCOLOR,
   DELETETODO,
 } from "./actionTypes";
 
@@ -18,7 +18,7 @@ const todosReducer = (state = initialState, action) => {
           id: state.length,
           todo: action.payload.todoText,
           completed: false,
-          selectedColors: [],
+          color: "",
         },
       ];
     case TOGGLESTATE: {
@@ -44,17 +44,13 @@ const todosReducer = (state = initialState, action) => {
       });
       return newState;
     }
-    case SELECTEDCOLORS: {
-      // const targetTodo = state.find(todo => todo.id == action.payload.todoId)
-      // targetTodo.selectedColors.push(action.payload.selectedColor)
+    case SELECTEDCOLOR: {
       const newState = state.map((todo) => {
         if (todo.id == action.payload.todoId) {
+          console.log(action.payload.selectedColor);
           return {
             ...todo,
-            selectedColors: [
-              ...todo.selectedColors,
-              action.payload.selectedColor,
-            ],
+            color: action.payload.selectedColor,
           };
         }
         return todo;

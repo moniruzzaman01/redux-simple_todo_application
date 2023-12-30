@@ -3,7 +3,7 @@ import {
   TOGGLESTATE,
   COMPLETEALLTODOS,
   CLEARCOMPLETEDTODOS,
-  SELECTEDCOLORS,
+  SELECTEDCOLOR,
   DELETETODO,
 } from "./actionTypes";
 
@@ -29,9 +29,9 @@ export const clearCompletedTodos = () => {
     type: CLEARCOMPLETEDTODOS,
   };
 };
-export const selectedColors = (todoId, selectedColor) => {
+export const selectedColor = (todoId, selectedColor) => {
   return {
-    type: SELECTEDCOLORS,
+    type: SELECTEDCOLOR,
     payload: { todoId, selectedColor },
   };
 };
