@@ -1,7 +1,7 @@
 import { STATUSCHANGED, COLORCHANGED } from "./actionTypes";
 
 const initialState = {
-  todoState: "",
+  todoState: "all",
   colors: [],
 };
 
