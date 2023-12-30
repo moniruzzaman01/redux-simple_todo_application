@@ -1,6 +1,6 @@
 import {
   ADDTODO,
-  COMPLETETODO,
+  TOGGLESTATE,
   COMPLETEALLTODOS,
   CLEARCOMPLETEDTODOS,
   SELECTEDCOLORS,
@@ -15,7 +15,7 @@ export const addTodo = (todoText) => {
 };
 export const completeTodo = (todoId) => {
   return {
-    type: COMPLETETODO,
+    type: TOGGLESTATE,
     payload: { todoId },
   };
 };
@@ -29,10 +29,10 @@ export const clearCompletedTodos = () => {
     type: CLEARCOMPLETEDTODOS,
   };
 };
-export const selectedColors = (selectedColor) => {
+export const selectedColors = (todoId, selectedColor) => {
   return {
     type: SELECTEDCOLORS,
-    payload: { selectedColor },
+    payload: { todoId, selectedColor },
   };
 };
 export const deleteTodo = (todoId) => {
