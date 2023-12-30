@@ -1,6 +1,9 @@
 import { STATUSCHANGED, COLORCHANGED } from "./actionTypes";
 
-const initialState = {};
+const initialState = {
+  todoState: "",
+  colors: [],
+};
 
 const filterReducer = (state = initialState, action) => {
   switch (action.type) {

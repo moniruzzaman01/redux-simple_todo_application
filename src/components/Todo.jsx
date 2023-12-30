@@ -5,7 +5,6 @@ import PropTypes from "prop-types";
 
 export default function Todo({ todo }) {
   const dispatch = useDispatch();
-  console.log(todo);
 
   return (
     <div className="flex justify-start items-center p-2 hover:bg-gray-100 hover:transition-all space-x-4 border-b border-gray-400/20 last:border-0">
