@@ -13,7 +13,7 @@ const updateColor = (todoId, color) => {
     });
     const todos = await response.json();
     console.log("res", todos, todoId);
-    dispatch(selectedColor(todoId));
+    dispatch(selectedColor(todoId, color));
   };
 };
 
