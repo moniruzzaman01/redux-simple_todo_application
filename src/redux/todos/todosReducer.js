@@ -1,4 +1,5 @@
 import {
+  LOADTODO,
   ADDTODO,
   TOGGLESTATE,
   COMPLETEALLTODOS,
@@ -11,6 +12,8 @@ const initialState = [];
 
 const todosReducer = (state = initialState, action) => {
   switch (action.type) {
+    case LOADTODO:
+      return action.payload.todos;
     case ADDTODO:
       return [
         ...state,

@@ -26,7 +26,7 @@ export default function Todo({ todo }) {
       </div>
 
       <div className={`select-none flex-1 ${todo.completed && "line-through"}`}>
-        {todo.todo}
+        {todo.todo || todo.text}
       </div>
       <div
         onClick={() => dispatch(selectedColor(todo.id, "green"))}

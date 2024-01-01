@@ -1,4 +1,5 @@
 import {
+  LOADTODO,
   ADDTODO,
   TOGGLESTATE,
   COMPLETEALLTODOS,
@@ -7,6 +8,12 @@ import {
   DELETETODO,
 } from "./actionTypes";
 
+export const loadTodo = (todos) => {
+  return {
+    type: LOADTODO,
+    payload: { todos },
+  };
+};
 export const addTodo = (todoText) => {
   return {
     type: ADDTODO,

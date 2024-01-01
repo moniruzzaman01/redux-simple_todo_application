@@ -1,3 +1,4 @@
+export const LOADTODO = "totos/loadTodo";
 export const ADDTODO = "totos/addTodo";
 export const TOGGLESTATE = "totos/toggleState";
 export const COMPLETEALLTODOS = "totos/completeAllTodos";
