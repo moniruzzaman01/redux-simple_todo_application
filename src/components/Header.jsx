@@ -1,12 +1,9 @@
 import notes from "../assets/images/notes.png";
 import doubleTick from "../assets/images/double-tick.png";
 import plus from "../assets/images/plus.png";
-import {
-  addTodo,
-  clearCompletedTodos,
-  completeAllTodos,
-} from "../redux/todos/actions";
+import { clearCompletedTodos, completeAllTodos } from "../redux/todos/actions";
 import { useDispatch } from "react-redux";
+import addTodosToJsonServer from "../redux/todos/thunk/addTodosToJsonServer";
 
 export default function Header() {
   const dispatch = useDispatch();
@@ -14,7 +11,7 @@ export default function Header() {
   const handleAddTodo = (e) => {
     e.preventDefault();
     const todo = e.target.todo.value;
-    dispatch(addTodo(todo));
+    dispatch(addTodosToJsonServer(todo));
     e.target.reset();
   };
 
