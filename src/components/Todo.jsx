@@ -1,9 +1,9 @@
 import { useDispatch } from "react-redux";
 import cancel from "../assets/images/cancel.png";
-import { deleteTodo } from "../redux/todos/actions";
 import PropTypes from "prop-types";
 import updateStatus from "../redux/todos/thunk/updateStatus";
 import updateColor from "../redux/todos/thunk/updateColor";
+import deleteFromServer from "../redux/todos/thunk/deleteFromServer";
 
 export default function Todo({ todo }) {
   const dispatch = useDispatch();
@@ -12,7 +12,7 @@ export default function Todo({ todo }) {
     <div className="flex justify-start items-center p-2 hover:bg-gray-100 hover:transition-all space-x-4 border-b border-gray-400/20 last:border-0">
       <div
         onClick={() => dispatch(updateStatus(todo.id, todo.completed))}
-        className={`rounded-full bg-white border-2 w-5 h-5 flex flex-shrink-0 justify-center items-center mr-2 ${
+        className={`relative rounded-full bg-white border-2 w-5 h-5 flex flex-shrink-0 justify-center items-center mr-2 ${
           todo.completed && "border-green-500 focus-within:border-green-500"
         }`}
       >
@@ -52,7 +52,7 @@ export default function Todo({ todo }) {
       ></div>
 
       <img
-        onClick={() => dispatch(deleteTodo(todo.id))}
+        onClick={() => dispatch(deleteFromServer(todo.id))}
         src={cancel}
         className="flex-shrink-0 w-4 h-4 ml-2 cursor-pointer"
         alt="Cancel"

@@ -2,7 +2,7 @@ import { selectedColor } from "../actions";
 
 const updateColor = (todoId, color) => {
   return async (dispatch) => {
-    const response = await fetch(`http://localhost:9000/todos/${todoId}`, {
+    await fetch(`http://localhost:9000/todos/${todoId}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
@@ -11,8 +11,6 @@ const updateColor = (todoId, color) => {
         color,
       }),
     });
-    const todos = await response.json();
-    console.log("res", todos, todoId);
     dispatch(selectedColor(todoId, color));
   };
 };
