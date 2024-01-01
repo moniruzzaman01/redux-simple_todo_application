@@ -1,7 +1,9 @@
 import { useDispatch } from "react-redux";
 import cancel from "../assets/images/cancel.png";
-import { deleteTodo, selectedColor, toggleState } from "../redux/todos/actions";
+import { deleteTodo } from "../redux/todos/actions";
 import PropTypes from "prop-types";
+import updateStatus from "../redux/todos/thunk/updateStatus";
+import updateColor from "../redux/todos/thunk/updateColor";
 
 export default function Todo({ todo }) {
   const dispatch = useDispatch();
@@ -9,7 +11,7 @@ export default function Todo({ todo }) {
   return (
     <div className="flex justify-start items-center p-2 hover:bg-gray-100 hover:transition-all space-x-4 border-b border-gray-400/20 last:border-0">
       <div
-        onClick={() => dispatch(toggleState(todo.id))}
+        onClick={() => dispatch(updateStatus(todo.id, todo.completed))}
         className={`rounded-full bg-white border-2 w-5 h-5 flex flex-shrink-0 justify-center items-center mr-2 ${
           todo.completed && "border-green-500 focus-within:border-green-500"
         }`}
@@ -29,21 +31,21 @@ export default function Todo({ todo }) {
         {todo.todo || todo.text}
       </div>
       <div
-        onClick={() => dispatch(selectedColor(todo.id, "green"))}
+        onClick={() => dispatch(updateColor(todo.id, "green"))}
         className={`flex-shrink-0 h-4 w-4 rounded-full border-2 ml-auto cursor-pointer border-green-500 hover:bg-green-500 ${
           todo.color == "green" && "bg-green-500"
         }`}
       ></div>
 
       <div
-        onClick={() => dispatch(selectedColor(todo.id, "yellow"))}
+        onClick={() => dispatch(updateColor(todo.id, "yellow"))}
         className={`flex-shrink-0 h-4 w-4 rounded-full border-2 ml-auto cursor-pointer border-yellow-500 hover:bg-yellow-500 ${
           todo.color == "yellow" && "bg-yellow-500"
         }`}
       ></div>
 
       <div
-        onClick={() => dispatch(selectedColor(todo.id, "red"))}
+        onClick={() => dispatch(updateColor(todo.id, "red"))}
         className={`flex-shrink-0 h-4 w-4 rounded-full border-2 ml-auto cursor-pointer border-red-500 hover:bg-red-500 ${
           todo.color == "red" && "bg-red-500"
         }`}
